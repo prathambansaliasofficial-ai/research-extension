@@ -1,0 +1,136 @@
+:root {
+  --paper: #FBF7EE;
+  --paper-edge: #F1EDE2;
+  --ink: #1E2233;
+  --ink-soft: #12172B;
+  --muted: #8890A6;
+  --amber: #E8A33D;
+  --tan: #8A5A2B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 380px;
+  background: var(--paper-edge);
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+}
+
+/* Signature element: the popup reads as the top sheet of a stack of paper —
+   two rotated card-edges peek out behind it, and the shuffle button pulls a
+   new one off the top, matching the "randomised paper" idea in the content
+   itself rather than a decorative flourish. */
+.sheet {
+  position: relative;
+  background: var(--paper);
+  padding: 22px 22px 18px;
+  min-height: 320px;
+  max-height: 480px;
+  overflow-y: auto;
+  box-shadow:
+    0 1px 0 var(--paper-edge),
+    3px 6px 0 -2px var(--paper-edge),
+    6px 12px 0 -4px var(--paper-edge);
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-bottom: 10px;
+}
+
+.meta-row .dot { color: var(--muted); }
+
+#tag {
+  background: var(--paper-edge);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+.body {
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.body p {
+  margin: 0 0 12px;
+  white-space: pre-line;
+}
+
+.body h2, .body h3 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin: 18px 0 6px;
+}
+
+.placeholder { color: var(--muted); font-style: italic; }
+
+.footer {
+  border-top: 1px solid var(--paper-edge);
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+.read-more {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tan);
+  text-decoration: none;
+}
+
+.read-more:hover { color: var(--amber); }
+
+.shuffle {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--amber);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18);
+  transition: transform .15s ease;
+}
+
+.shuffle:hover { transform: scale(1.06); }
+.shuffle:active { transform: scale(.94) rotate(-8deg); }
+
+.shuffle.spinning svg {
+  animation: spin .5s ease;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(180deg); }
+}
+
+/* Static wrapper positioning: the .shuffle button is fixed within the popup
+   viewport (not the scrolling sheet), so it stays reachable even on a long
+   summary. */
+html, body { position: relative; }

@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "DeepTech Recon — Paper Popup",
+  "version": "1.0.0",
+  "description": "One click, one research paper: a plain-language summary in a popup, with a link to the full write-up.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://random-paper-worker.YOUR-SUBDOMAIN.workers.dev/*"
+  ]
+}
