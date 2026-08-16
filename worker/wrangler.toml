@@ -1,0 +1,7 @@
+name = "random-paper-worker"
+main = "index.js"
+compatibility_date = "2026-08-01"
+
+# Secrets (NOT stored here — set them with `wrangler secret put`):
+#   NOTION_TOKEN
+#   NOTION_DATABASE_ID
